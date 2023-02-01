@@ -62,7 +62,7 @@ run.experiment <- function(n, seed){
       g.n <- get(g.name)
 
       # Debiased inference with DPI method ------------------------------------
-      est.res <- debiased_inference(Y, A, W, mu.n, g.n, eval.pts=A0.eval,
+      est.res <- debiased_inference(Y, A, W, mu=mu.n, g=g.n, eval.pts=A0.eval,
                                     bandwidth.method="DPI")
       save.df <- rbind(save.df,
                        data.frame(a=est.res$eval.pts, theta.n=est.res$theta,
@@ -74,7 +74,7 @@ run.experiment <- function(n, seed){
                                   nuisance.g=gright))
 
       # Debiased inference with LOOCV method ----------------------------------
-      est.res <- debiased_inference(Y, A, W, mu.n, g.n, eval.pts=A0.eval,
+      est.res <- debiased_inference(Y, A, W, mu=mu.n, g=g.n, eval.pts=A0.eval,
                                     bandwidth.method="LOOCV",
                                     bw.seq=bw.seq.short)
       save.df <- rbind(save.df,
@@ -87,7 +87,7 @@ run.experiment <- function(n, seed){
                                   nuisance.g=gright))
 
       # Debiased inference with LOOCV(h=b) method -----------------------------
-      est.res <- debiased_inference(Y, A, W, mu.n, g.n, eval.pts=A0.eval,
+      est.res <- debiased_inference(Y, A, W, mu=mu.n, g=g.n, eval.pts=A0.eval,
                                     bandwidth.method="LOOCV(h=b)",
                                     bw.seq=bw.seq)
       save.df <- rbind(save.df,

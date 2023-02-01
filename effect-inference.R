@@ -62,7 +62,7 @@ run.experiment <- function(n, seed){
       g.n <- get(g.name)
 
       # Debiased inference with DPI method ------------------------------------
-      est.res <- debiased_ate_inference(Y, A, W, mu.n, g.n,
+      est.res <- debiased_ate_inference(Y, A, W, mu=mu.n, g=g.n,
                                         eval.pts.1=A0.eval[-1],
                                         eval.pts.2=A0.eval[1],
                                         bandwidth.method="DPI")
@@ -78,7 +78,7 @@ run.experiment <- function(n, seed){
                                   nuisance.g=gright))
 
       # Debiased inference with LOOCV method ----------------------------------
-      est.res <- debiased_ate_inference(Y, A, W, mu.n, g.n,
+      est.res <- debiased_ate_inference(Y, A, W, mu=mu.n, g=g.n,
                                         eval.pts.1=A0.eval[-1],
                                         eval.pts.2=A0.eval[1],
                                         bandwidth.method="LOOCV",
@@ -95,7 +95,7 @@ run.experiment <- function(n, seed){
                                   nuisance.g=gright))
 
       # Debiased inference with LOOCV(h=b) method -----------------------------
-      est.res <- debiased_ate_inference(Y, A, W, mu.n, g.n,
+      est.res <- debiased_ate_inference(Y, A, W, mu=mu.n, g=g.n,
                                         eval.pts.1=A0.eval[-1],
                                         eval.pts.2=A0.eval[1],
                                         bandwidth.method="LOOCV(h=b)",
